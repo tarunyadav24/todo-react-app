@@ -48,6 +48,7 @@ function App() {
   }
 
   const [todos, setTodos] = useState(initTodo);
+  
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
 
@@ -55,22 +56,30 @@ function App() {
 
   return (
     <>
-      <Router basename="/todo-react-app">
-      <Header title="My Todos List" searchBar={false} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Add addTodo={addTodoHandler} />
-              <Todos todos={todos} onDelete={onDelete} />
-            </>
-          }
-        />
-        <Route path="/About" element={<About />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Header title="My Todos List" searchBar={false} />
+        <Routes>
+          <Route
+             path="/todo-react-app" element={
+              <>
+                <Add addTodo={addTodoHandler} />
+                <Todos todos={todos} onDelete={onDelete} />
+              </>
+            }
+          />
+          <Route
+             path="/" element={
+              <>
+                <Add addTodo={addTodoHandler} />
+                <Todos todos={todos} onDelete={onDelete} />
+              </>
+            }
+          />
+          
+          <Route  path="/About" element={<About />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }
