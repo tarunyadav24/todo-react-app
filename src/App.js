@@ -66,7 +66,7 @@ function App() {
               </>
             }
           />
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/About" element={<About />} />
         </Routes>
         <Footer />
       </Router>
