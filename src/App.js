@@ -55,22 +55,22 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Header title="My Todos List" searchBar={false} />
-        <Routes>
-          <Route
-            exact path={["/", "/todo-react-app/"]} element={
-              <>
-                <Add addTodo={addTodoHandler} />
-                <Todos todos={todos} onDelete={onDelete} />
-              </>
-            }
-          />
-          
-          <Route exact path="/About" element={<About />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <Router basename="/todo-react-app">
+      <Header title="My Todos List" searchBar={false} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Add addTodo={addTodoHandler} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </>
+          }
+        />
+        <Route path="/About" element={<About />} />
+      </Routes>
+      <Footer />
+    </Router>
     </>
   );
 }
