@@ -59,7 +59,7 @@ function App() {
         <Header title="My Todos List" searchBar={false} />
         <Routes>
           <Route
-            exact path="/" element={
+            exact path="/todo-react-app" element={
               <>
                 <Add addTodo={addTodoHandler} />
                 <Todos todos={todos} onDelete={onDelete} />
